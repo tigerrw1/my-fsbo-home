@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elegant Family Home – For Sale By Owner</title>
+  <title>Richwood Home For Sale By Owner</title>
   <meta name="description" content="FSBO home with thumbnail gallery, full-screen lightbox, filters, navigation, and zoom." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
+	  --primary: #1f2933;
+      --secondary: #f5f7fa;
       --accent: #2563eb;
       --dark: #111827;
       --light: #f5f7fa;
@@ -26,7 +28,7 @@
     header {
       background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('images/hero.jpg') center/cover no-repeat;
       color: white;
-      padding: 2.0rem 1.5rem;
+      padding: 1rem 1.5rem;
       text-align: center;
     }
 
@@ -36,10 +38,10 @@
     section {
       max-width: 1200px;
       margin: auto;
-      padding: 1.5rem 1.5rem;
+      padding: 0.5rem 0.5rem;
     }
 	
-    h2 { font-size: 2rem; margin-bottom: 1rem; }	
+    h2 { font-size: 1.5rem; margin-bottom: 1rem; }	
 	
     .badge {
       display: inline-block;
@@ -48,14 +50,20 @@
       padding: .4rem .8rem;
       border-radius: 999px;
       font-size: .85rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.25rem;
     }
 
     .details-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 0.25rem;
+      margin-top: 0.15rem;
+    }
+	
+	.detail-card {
+      background: var(--secondary);
+      padding: 0.5rem;
+      border-radius: 12px;
     }
 	
     /* FILTER BUTTONS */
@@ -181,22 +189,37 @@
 <body>
 
 <header>
-  <h1>Elegant 4-Bedroom Family Home</h1>
-  <p>For Sale By Owner • Prosper, TX</p>
+  <h1>Richwood Home • For Sale By Owner </h1>
+  <p>5739 Tiger Ln, Frisco, TX 75035</p>
 </header>
 
 <section>
   <span class="badge">Property Overview</span>
-  <h2>Welcome Home</h2>
-  <p>Beautifully maintained home featuring open living spaces, modern finishes, and a quiet family-friendly neighborhood.</p>
-
   <div class="details-grid">
-    <div class="detail-card"><strong>Price:</strong><br>$825,000</div>
-    <div class="detail-card"><strong>Bedrooms:</strong><br>4</div>
-    <div class="detail-card"><strong>Bathrooms:</strong><br>3</div>
-    <div class="detail-card"><strong>Living Area:</strong><br>3,150 sq ft</div>
-    <div class="detail-card"><strong>Lot Size:</strong><br>0.28 Acres</div>
-    <div class="detail-card"><strong>Year Built:</strong><br>2019</div>
+    <div class="detail-card"><strong>Price:</strong><br>$850,000</div>
+    <div class="detail-card"><strong>Bedrooms:</strong><br>5</div>
+    <div class="detail-card"><strong>Bathrooms:</strong><br>4 Full, 1 Half</div>
+    <div class="detail-card"><strong>Living Area:</strong><br>3,677 sq ft</div>
+    <div class="detail-card"><strong>Lot Size:</strong><br>6,050 sq ft (55 X 110)</div>
+    <div class="detail-card"><strong>Year Built:</strong><br>2015</div>
+	<div class="detail-card"><strong>East Facing</strong><br>Vastu Compliant</div>
+	<div class="detail-card"><strong>Gated Community of Richwoods</strong><br>Security Guards - 24x7</div>
+	<div class="detail-card"><strong>Motorized Louvered Patio Roof</strong><br>Adjustable Slats <br> Control Daylight & Rain</div>
+	<div class="detail-card"><strong>Motorized Shade</strong><br>Huge Energy Savings <br> Blocks West Sun</div>
+	
+	<div class="detail-card"><strong>Family Room:</strong><br>__ X __</div>
+	<div class="detail-card"><strong>Kitchen:</strong><br>__ X __</div>
+	<div class="detail-card"><strong>Breakfast Room:</strong><br>__ X __</div>
+	<div class="detail-card"><strong>Dining Room:</strong><br>__ X __</div>
+	<div class="detail-card"><strong>Office:</strong><br>__ X __</div>
+	<div class="detail-card"><strong>Game (upstairs):</strong><br>__ X __</div>
+	<div class="detail-card"><strong>Media (upstairs):</strong><br>__ X __</div>
+	<div class="detail-card"><strong>Master BR (downstairs):</strong><br>__ X __</div>
+	<div class="detail-card"><strong>BR2 (downstairs guest):</strong><br>__ X __</div>
+	<div class="detail-card"><strong>BR3 (upstairs):</strong><br>__ X __</div>
+	<div class="detail-card"><strong>BR4 (upstairs):</strong><br>__ X __</div>
+	<div class="detail-card"><strong>BR5 (upstairs):</strong><br>__ X __</div>	
+	
   </div>
 </section>
 
@@ -205,20 +228,28 @@
 
   <div class="filters">
     <button class="active" data-filter="all">All</button>
-    <button data-filter="living">Living</button>
+    <button data-filter="family">Family</button>
     <button data-filter="kitchen">Kitchen</button>
     <button data-filter="bedroom">Bedroom</button>
     <button data-filter="backyard">Backyard</button>
   </div>
 
   <div class="thumbnail-grid" id="gallery">
-    <img src="images/thumbs/living-1.jpg" data-large="images/large/living-1.jpg" data-room="Living room" data-caption="Spacious living room with vaulted ceiling and natural light">
-    <img src="images/thumbs/living-2.jpg" data-large="images/large/living-2.jpg" data-room="Living room" data-caption="Modern fireplace with custom stone surround">
-    <img src="images/thumbs/living-3.jpg" data-large="images/large/living-3.jpg" data-room="Living room" data-caption="Custom Modern fireplace">
-	
-    <img src="images/thumbs/kitchen-1.jpg" data-large="images/large/kitchen-1.jpg" data-room="kitchen" data-caption="Chef’s kitchen with quartz countertops and large island">
-    <img src="images/thumbs/kitchen-2.jpg" data-large="images/large/kitchen-2.jpg" data-room="kitchen" data-caption="Gas cooktop with designer vent hood and tile backsplash">
+    <img src="images/thumbs/thumb-Family-IMG_8778.jpg" data-large="images/large/Family-IMG_8778.jpg" data-room="family" data-caption="Spacious living room with vaulted ceiling and natural light">
+    <img src="images/thumbs/thumb-Family-IMG_8710.jpg" data-large="images/large/Family-IMG_8710.jpg" data-room="family" data-caption="Modern fireplace with custom stone surround">
+    <img src="images/thumbs/thumb-Family-IMG_8793.jpg" data-large="images/large/Family-IMG_8793.jpg" data-room="family" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Family-IMG_8794.jpg" data-large="images/large/Family-IMG_8794.jpg" data-room="family" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Family-IMG_8806.jpg" data-large="images/large/Family-IMG_8806.jpg" data-room="family" data-caption="Custom Modern fireplace">
 
+    <img src="images/thumbs/thumb-Kitchen-IMG_8699.jpg" data-large="images/large/Kitchen-IMG_8699.jpg" data-room="kitchen" data-caption="Spacious living room with vaulted ceiling and natural light">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8701.jpg" data-large="images/large/Kitchen-IMG_8701.jpg" data-room="kitchen" data-caption="Modern fireplace with custom stone surround">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8702.jpg" data-large="images/large/Kitchen-IMG_8702.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8703.jpg" data-large="images/large/Kitchen-IMG_8703.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8704.jpg" data-large="images/large/Kitchen-IMG_8704.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-kitchen-IMG_8708.jpg" data-large="images/large/kitchen-IMG_8708.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8812.jpg" data-large="images/large/Kitchen-IMG_8812.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8813.jpg" data-large="images/large/Kitchen-IMG_8813.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
+		
     <img src="images/thumbs/bedroom-1.jpg" data-large="images/large/bedroom-1.jpg" data-room="bedroom" data-caption="Primary bedroom with tray ceiling and sitting area">
     <img src="images/thumbs/bedroom-2.jpg" data-large="images/large/bedroom-2.jpg" data-room="bedroom" data-caption="Primary bathroom with dual vanities and walk-in shower">
 
