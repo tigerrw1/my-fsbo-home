@@ -22,14 +22,14 @@
     body {
       font-family: 'Inter', sans-serif;
       background: white;
-      color: var(--dark);
+	   color: #3c4766;	  
     }
 
     header {
-      background: black;
-      color: white;
+      background: #edeae8;
+      color: #3c4766;	  
       padding: 1rem 1.5rem;
-      text-align: center;
+	  
     }
 
     header h1 { font-size: 2.2rem; }
@@ -62,28 +62,28 @@
 	
 	.detail-card {
       background: white;
-      padding: 0.35rem;
+      padding: 0.25rem;
       border-radius: 8px;
 	  border: 1px solid #000000;
-	  font-size: 0.875rem;
+	  font-size: 1rem;
     }
 	
     /* FILTER BUTTONS */
     .filters {
       display: flex;
-      gap: .35rem;
+      gap: .75rem;
       flex-wrap: wrap;
       margin-bottom: 1.5rem;
     }
 
     .filters button {
-      border: none;
-      padding: .25rem 1rem;
+     border: 1px solid #3c4766; 
+      padding: .3em .75rem;
       border-radius: 999px;
-      background: var(--light);
+      background: none;
       cursor: pointer;
       font-weight: 600;
-	  color: black;
+	  color: #3c4766;
     }
 
     .filters button.active {
@@ -187,15 +187,50 @@
       font-size: .85rem;
       color: #6b7280;
     }
+		
+	.group {
+	  margin-bottom: 1rem;
+	}
+
+	.group h4 {
+	  margin: 0 0 0.25rem;
+	  font-size: 0.9rem;
+	  border-bottom: 1px solid #ddd;
+	}
+
+	.group ul {
+	  list-style: none;
+	  padding: 0;
+	  margin: 0;
+	  font-size: 0.85rem;
+	}
+
+	.group li {
+	  padding: 0.15rem 0;
+	  break-inside: avoid; /* prevents awkward splits */
+	}
+
+	.two-col {
+	  columns: 2;
+	  column-gap: 1.5rem;
+	}	
+	
+	.property-overview .two-col li b {
+		/* font-family: 'Glegoo', serif;   
+		font-weight: 700;               
+		font-size: 1rem;                */
+		color: #8D2424;                 /* optional: different color */
+	}		
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Richwood Home • For Sale By Owner </h1>
-  <p>5739 Tiger Ln, Frisco, TX 75035</p>
+  <h1>5739 Tiger Ln, Frisco, TX 75035</h1>
+  <p>• • • Location Location Location • • • RICHWOODS Community • • • For Sale By Owner (FSBO)</p>
 </header>
 
+<!--
 <section>
   <span class="badge">Property Overview</span>
   <div class="details-grid">
@@ -223,6 +258,57 @@
 	<div class="detail-card"><strong>BR4 (upstairs):</strong><br>12' 0" X 10' 6"</div>
 	<div class="detail-card"><strong>BR5 (upstairs):</strong><br>13' 3" X 11' 10"</div>	
 	
+  </div>
+</section>
+-->
+
+
+<section class="property-overview">
+
+	<div class="group">
+	  <h2>Property Details</h2>
+	  <ul class="two-col">
+		<li><strong>Price:</strong> $850,000</li>
+		<li><strong>Beds:</strong> 5</li>
+		<li><strong>Baths:</strong> 4 Full, 1 Half</li>
+		<li><strong>Living Area:</strong> 3,677 sq ft</li>
+		<li><strong>Lot Size:</strong> 6,050 sq ft</li>
+		<li><strong>Year Built:</strong> 2015</li>
+	  </ul>
+	</div>
+
+	<div class="group">
+	  <h4>Features</h4>
+	  <ul class="two-col">
+		<li>• <b>Richwoods</b> - Most desirable community in Frisco TX</li>
+		<li>• <b>East Facing</b></li>
+		<li>• <b>Gated</b> · 24×7 Security</li>
+		<li>• <b>Louvered Roof</b> · Motorized Patio Open/Close Slats</li>
+		<li>• <b>Motorized 25' Shade</b> · Blocks West Sun, Saves Energy Cost</li>
+		<li>• <b>Huge Game and Media Rooms</b> - approx 21' and 24' respectively</li>
+		<li>• <b>Office with Glass Doors</b></li>
+		<li>• <b>Additional 5th BR</b> - For growing family</li>
+		<li>• <b>Guest BR Downstairs</b> - Ideal for Parents</li>
+		<li>• <b>Easy asses</b> - Minutes from major highways and shopping centers</li>
+	  </ul>
+	</div>
+	
+  <div class="group">
+    <h4>Room Sizes</h4>
+    <ul class="two-col">
+      <li>Family: 18'2" × 15'1"</li>
+      <li>Kitchen: 16'0" × 12'3"</li>
+      <li>Breakfast: 10'10" × 10'2"</li>
+      <li>Dining: 12'4" × 11'0"</li>
+      <li>Office: 12'0" × 11'0"</li>
+      <li>Game (upstairs): 21'0" × 14'3"</li>
+      <li>Media (upstaris): 24'2" × 12'2"</li>
+      <li>Master BR: 17'0" × 14'0"</li>
+      <li>BR2 (Guest downstairs): 11'8" × 11'0"</li>
+      <li>BR3 (upstairs): 13'3" × 11'0"</li>
+      <li>BR4 (upstairs): 12'0" × 10'6"</li>
+      <li>BR5 (upstairs): 13'3" × 11'10"</li>
+    </ul>
   </div>
 </section>
 
@@ -253,97 +339,97 @@
   </div>
 
   <div class="thumbnail-grid" id="gallery">
-    <img src="images/thumbs/thumb-Family-IMG_8778.jpg" data-large="images/large/Family-IMG_8778.jpg" data-room="family" data-caption="Spacious living room with vaulted ceiling and natural light">
-    <img src="images/thumbs/thumb-Family-IMG_8710.jpg" data-large="images/large/Family-IMG_8710.jpg" data-room="family" data-caption="Modern fireplace with custom stone surround">
-    <img src="images/thumbs/thumb-Family-IMG_8793.jpg" data-large="images/large/Family-IMG_8793.jpg" data-room="family" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Family-IMG_8794.jpg" data-large="images/large/Family-IMG_8794.jpg" data-room="family" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Family-IMG_8806.jpg" data-large="images/large/Family-IMG_8806.jpg" data-room="family" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Family-IMG_8778.jpg" data-large="images/large/Family-IMG_8778.jpg" data-room="family" data-caption="">
+    <img src="images/thumbs/thumb-Family-IMG_8710.jpg" data-large="images/large/Family-IMG_8710.jpg" data-room="family" data-caption="">
+    <img src="images/thumbs/thumb-Family-IMG_8793.jpg" data-large="images/large/Family-IMG_8793.jpg" data-room="family" data-caption="">
+    <img src="images/thumbs/thumb-Family-IMG_8794.jpg" data-large="images/large/Family-IMG_8794.jpg" data-room="family" data-caption="">
+    <img src="images/thumbs/thumb-Family-IMG_8806.jpg" data-large="images/large/Family-IMG_8806.jpg" data-room="family" data-caption="">
 
-    <img src="images/thumbs/thumb-Kitchen-IMG_8699.jpg" data-large="images/large/Kitchen-IMG_8699.jpg" data-room="kitchen" data-caption="Spacious living room with vaulted ceiling and natural light">
-    <img src="images/thumbs/thumb-Kitchen-IMG_8701.jpg" data-large="images/large/Kitchen-IMG_8701.jpg" data-room="kitchen" data-caption="Modern fireplace with custom stone surround">
-    <img src="images/thumbs/thumb-Kitchen-IMG_8702.jpg" data-large="images/large/Kitchen-IMG_8702.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Kitchen-IMG_8703.jpg" data-large="images/large/Kitchen-IMG_8703.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Kitchen-IMG_8704.jpg" data-large="images/large/Kitchen-IMG_8704.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-kitchen-IMG_8708.jpg" data-large="images/large/kitchen-IMG_8708.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Kitchen-IMG_8812.jpg" data-large="images/large/Kitchen-IMG_8812.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Kitchen-IMG_8813.jpg" data-large="images/large/Kitchen-IMG_8813.jpg" data-room="kitchen" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8699.jpg" data-large="images/large/Kitchen-IMG_8699.jpg" data-room="kitchen" data-caption="">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8701.jpg" data-large="images/large/Kitchen-IMG_8701.jpg" data-room="kitchen" data-caption="">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8702.jpg" data-large="images/large/Kitchen-IMG_8702.jpg" data-room="kitchen" data-caption="">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8703.jpg" data-large="images/large/Kitchen-IMG_8703.jpg" data-room="kitchen" data-caption="">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8704.jpg" data-large="images/large/Kitchen-IMG_8704.jpg" data-room="kitchen" data-caption="">
+    <img src="images/thumbs/thumb-kitchen-IMG_8708.jpg" data-large="images/large/kitchen-IMG_8708.jpg" data-room="kitchen" data-caption="">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8812.jpg" data-large="images/large/Kitchen-IMG_8812.jpg" data-room="kitchen" data-caption="">
+    <img src="images/thumbs/thumb-Kitchen-IMG_8813.jpg" data-large="images/large/Kitchen-IMG_8813.jpg" data-room="kitchen" data-caption="">
 		
-    <img src="images/thumbs/thumb-Dinning-IMG_8711.jpg" data-large="images/large/Dinning-IMG_8711.jpg" data-room="dining" data-caption="Primary bedroom with tray ceiling and sitting area">
-    <img src="images/thumbs/thumb-Dinning-IMG_8727.jpg" data-large="images/large/Dinning-IMG_8727.jpg" data-room="dining" data-caption="Primary bathroom with dual vanities and walk-in shower">
+    <img src="images/thumbs/thumb-Dinning-IMG_8711.jpg" data-large="images/large/Dinning-IMG_8711.jpg" data-room="dining" data-caption="">
+    <img src="images/thumbs/thumb-Dinning-IMG_8727.jpg" data-large="images/large/Dinning-IMG_8727.jpg" data-room="dining" data-caption="">
 
-    <img src="images/thumbs/thumb-Foyer-IMG_8749.jpg" data-large="images/large/Foyer-IMG_8749.jpg" data-room="foyer" data-caption="Primary bedroom with tray ceiling and sitting area">
-    <img src="images/thumbs/thumb-Foyer-IMG_8750.jpg" data-large="images/large/Foyer-IMG_8750.jpg" data-room="foyer" data-caption="Primary bathroom with dual vanities and walk-in shower">
-    <img src="images/thumbs/thumb-Foyer-IMG_8753.jpg" data-large="images/large/Foyer-IMG_8753.jpg" data-room="foyer" data-caption="Primary bedroom with tray ceiling and sitting area">
+    <img src="images/thumbs/thumb-Foyer-IMG_8749.jpg" data-large="images/large/Foyer-IMG_8749.jpg" data-room="foyer" data-caption="">
+    <img src="images/thumbs/thumb-Foyer-IMG_8750.jpg" data-large="images/large/Foyer-IMG_8750.jpg" data-room="foyer" data-caption="">
+    <img src="images/thumbs/thumb-Foyer-IMG_8753.jpg" data-large="images/large/Foyer-IMG_8753.jpg" data-room="foyer" data-caption="">
 
-    <img src="images/thumbs/thumb-Patio-IMG_8688.jpg" data-large="images/large/Patio-IMG_8688.jpg" data-room="patio" data-caption="Spacious living room with vaulted ceiling and natural light">
-    <img src="images/thumbs/thumb-Patio-IMG_8689.jpg" data-large="images/large/Patio-IMG_8689.jpg" data-room="patio" data-caption="Modern fireplace with custom stone surround">
-    <img src="images/thumbs/thumb-Patio-IMG_8690.jpg" data-large="images/large/Patio-IMG_8690.jpg" data-room="patio" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Patio-IMG_8691.jpg" data-large="images/large/Patio-IMG_8691.jpg" data-room="patio" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Patio-IMG_8692.jpg" data-large="images/large/Patio-IMG_8692.jpg" data-room="patio" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Patio-IMG_8693.jpg" data-large="images/large/Patio-IMG_8693.jpg" data-room="patio" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Patio-IMG_8694.jpg" data-large="images/large/Patio-IMG_8694.jpg" data-room="patio" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Patio-IMG_8695.jpg" data-large="images/large/Patio-IMG_8695.jpg" data-room="patio" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Patio-IMG_8688.jpg" data-large="images/large/Patio-IMG_8688.jpg" data-room="patio" data-caption="">
+    <img src="images/thumbs/thumb-Patio-IMG_8689.jpg" data-large="images/large/Patio-IMG_8689.jpg" data-room="patio" data-caption="">
+    <img src="images/thumbs/thumb-Patio-IMG_8690.jpg" data-large="images/large/Patio-IMG_8690.jpg" data-room="patio" data-caption="">
+    <img src="images/thumbs/thumb-Patio-IMG_8691.jpg" data-large="images/large/Patio-IMG_8691.jpg" data-room="patio" data-caption="">
+    <img src="images/thumbs/thumb-Patio-IMG_8692.jpg" data-large="images/large/Patio-IMG_8692.jpg" data-room="patio" data-caption="">
+    <img src="images/thumbs/thumb-Patio-IMG_8693.jpg" data-large="images/large/Patio-IMG_8693.jpg" data-room="patio" data-caption="">
+    <img src="images/thumbs/thumb-Patio-IMG_8694.jpg" data-large="images/large/Patio-IMG_8694.jpg" data-room="patio" data-caption="">
+    <img src="images/thumbs/thumb-Patio-IMG_8695.jpg" data-large="images/large/Patio-IMG_8695.jpg" data-room="patio" data-caption="">
 
-    <img src="images/thumbs/thumb-Game-IMG_8784.jpg" data-large="images/large/Game-IMG_8784.jpg" data-room="game" data-caption="Primary bedroom with tray ceiling and sitting area">
-    <img src="images/thumbs/thumb-Game-IMG_8785.jpg" data-large="images/large/Game-IMG_8785.jpg" data-room="game" data-caption="Primary bathroom with dual vanities and walk-in shower">
-    <img src="images/thumbs/thumb-Game-IMG_8786.jpg" data-large="images/large/Game-IMG_8786.jpg" data-room="game" data-caption="Primary bedroom with tray ceiling and sitting area">
-    <img src="images/thumbs/thumb-Game-IMG_8790.jpg" data-large="images/large/Game-IMG_8790.jpg" data-room="game" data-caption="Primary bathroom with dual vanities and walk-in shower">
+    <img src="images/thumbs/thumb-Game-IMG_8784.jpg" data-large="images/large/Game-IMG_8784.jpg" data-room="game" data-caption="">
+    <img src="images/thumbs/thumb-Game-IMG_8785.jpg" data-large="images/large/Game-IMG_8785.jpg" data-room="game" data-caption="">
+    <img src="images/thumbs/thumb-Game-IMG_8786.jpg" data-large="images/large/Game-IMG_8786.jpg" data-room="game" data-caption="">
+    <img src="images/thumbs/thumb-Game-IMG_8790.jpg" data-large="images/large/Game-IMG_8790.jpg" data-room="game" data-caption="">
 
-    <img src="images/thumbs/thumb-Breakfast-IMG_8783.jpg" data-large="images/large/Breakfast-IMG_8783.jpg" data-room="breakfast" data-caption="Primary bedroom with tray ceiling and sitting area">
-    <img src="images/thumbs/thumb-Breakfast-IMG_8814.jpg" data-large="images/large/Breakfast-IMG_8814.jpg" data-room="breakfast" data-caption="Primary bathroom with dual vanities and walk-in shower">
+    <img src="images/thumbs/thumb-Breakfast-IMG_8783.jpg" data-large="images/large/Breakfast-IMG_8783.jpg" data-room="breakfast" data-caption="">
+    <img src="images/thumbs/thumb-Breakfast-IMG_8814.jpg" data-large="images/large/Breakfast-IMG_8814.jpg" data-room="breakfast" data-caption="">
 
-    <img src="images/thumbs/thumb-Media-IMG_8787.jpg" data-large="images/large/Media-IMG_8787.jpg" data-room="media" data-caption="Primary bedroom with tray ceiling and sitting area">
-    <img src="images/thumbs/thumb-Media-IMG_8789.jpg" data-large="images/large/Media-IMG_8789.jpg" data-room="media" data-caption="Primary bathroom with dual vanities and walk-in shower">
+    <img src="images/thumbs/thumb-Media-IMG_8787.jpg" data-large="images/large/Media-IMG_8787.jpg" data-room="media" data-caption="">
+    <img src="images/thumbs/thumb-Media-IMG_8789.jpg" data-large="images/large/Media-IMG_8789.jpg" data-room="media" data-caption="">
 
-    <img src="images/thumbs/thumb-Office-IMG_8716.jpg" data-large="images/large/Office-IMG_8716.jpg" data-room="office" data-caption="Primary bedroom with tray ceiling and sitting area">
-    <img src="images/thumbs/thumb-Office-IMG_8717.jpg" data-large="images/large/Office-IMG_8717.jpg" data-room="office" data-caption="Primary bathroom with dual vanities and walk-in shower">
+    <img src="images/thumbs/thumb-Office-IMG_8716.jpg" data-large="images/large/Office-IMG_8716.jpg" data-room="office" data-caption="">
+    <img src="images/thumbs/thumb-Office-IMG_8717.jpg" data-large="images/large/Office-IMG_8717.jpg" data-room="office" data-caption="">
 	
-    <img src="images/thumbs/thumb-Master-BR-IMG_8734.jpg" data-large="images/large/Master-BR-IMG_8734.jpg" data-room="master" data-caption="Spacious living room with vaulted ceiling and natural light">
-    <img src="images/thumbs/thumb-Master-BR-IMG_8739.jpg" data-large="images/large/Master-BR-IMG_8739.jpg" data-room="master" data-caption="Modern fireplace with custom stone surround">
-    <img src="images/thumbs/thumb-Master-Bath-IMG_8740.jpg" data-large="images/large/Master-Bath-IMG_8740.jpg" data-room="master" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Master-Bath-IMG_8742.jpg" data-large="images/large/Master-Bath-IMG_8742.jpg" data-room="master" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Master-Bath-IMG_8741.jpg" data-large="images/large/Master-Bath-IMG_8741.jpg" data-room="master" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Master-Closet-IMG_8746.jpg" data-large="images/large/Master-Closet-IMG_8746.jpg" data-room="master" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Master-Closet-IMG_8747.jpg" data-large="images/large/Master-Closet-IMG_8747.jpg" data-room="master" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Master-Closet-IMG_8748.jpg" data-large="images/large/Master-Closet-IMG_8748.jpg" data-room="master" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Master-BR-IMG_8734.jpg" data-large="images/large/Master-BR-IMG_8734.jpg" data-room="master" data-caption="">
+    <img src="images/thumbs/thumb-Master-BR-IMG_8739.jpg" data-large="images/large/Master-BR-IMG_8739.jpg" data-room="master" data-caption="">
+    <img src="images/thumbs/thumb-Master-Bath-IMG_8740.jpg" data-large="images/large/Master-Bath-IMG_8740.jpg" data-room="master" data-caption="">
+    <img src="images/thumbs/thumb-Master-Bath-IMG_8742.jpg" data-large="images/large/Master-Bath-IMG_8742.jpg" data-room="master" data-caption="">
+    <img src="images/thumbs/thumb-Master-Bath-IMG_8741.jpg" data-large="images/large/Master-Bath-IMG_8741.jpg" data-room="master" data-caption="">
+    <img src="images/thumbs/thumb-Master-Closet-IMG_8746.jpg" data-large="images/large/Master-Closet-IMG_8746.jpg" data-room="master" data-caption="">
+    <img src="images/thumbs/thumb-Master-Closet-IMG_8747.jpg" data-large="images/large/Master-Closet-IMG_8747.jpg" data-room="master" data-caption="">
+    <img src="images/thumbs/thumb-Master-Closet-IMG_8748.jpg" data-large="images/large/Master-Closet-IMG_8748.jpg" data-room="master" data-caption="">
 
-    <img src="images/thumbs/thumb-Guest-BR-IMG_8718.jpg" data-large="images/large/Guest-BR-IMG_8718.jpg" data-room="guest" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Guest-BR-IMG_8720.jpg" data-large="images/large/Guest-BR-IMG_8720.jpg" data-room="guest" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-Guest-BR-IMG_8723.jpg" data-large="images/large/Guest-BR-IMG_8723.jpg" data-room="guest" data-caption="Custom Modern fireplace">	
-    <img src="images/thumbs/thumb-Guest-Bath-IMG_8722.jpg" data-large="images/large/Guest-Bath-IMG_8722.jpg" data-room="guest" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-Guest-BR-IMG_8718.jpg" data-large="images/large/Guest-BR-IMG_8718.jpg" data-room="guest" data-caption="">
+    <img src="images/thumbs/thumb-Guest-BR-IMG_8720.jpg" data-large="images/large/Guest-BR-IMG_8720.jpg" data-room="guest" data-caption="">
+	<img src="images/thumbs/thumb-Guest-BR-IMG_8723.jpg" data-large="images/large/Guest-BR-IMG_8723.jpg" data-room="guest" data-caption="">	
+    <img src="images/thumbs/thumb-Guest-Bath-IMG_8722.jpg" data-large="images/large/Guest-Bath-IMG_8722.jpg" data-room="guest" data-caption="">
 
-    <img src="images/thumbs/thumb-BR-3-IMG_8771.jpg" data-large="images/large/BR-3-IMG_8771.jpg" data-room="br3" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-BR-3-Bath-IMG_8809.jpg" data-large="images/large/BR-3-Bath-IMG_8809.jpg" data-room="br3" data-caption="Custom Modern fireplace">	
+    <img src="images/thumbs/thumb-BR-3-IMG_8771.jpg" data-large="images/large/BR-3-IMG_8771.jpg" data-room="br3" data-caption="">
+	<img src="images/thumbs/thumb-BR-3-Bath-IMG_8809.jpg" data-large="images/large/BR-3-Bath-IMG_8809.jpg" data-room="br3" data-caption="">	
 
-    <img src="images/thumbs/thumb-BR-4-IMG_8795.jpg" data-large="images/large/BR-4-IMG_8795.jpg" data-room="br4" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-BR-4-Closet-IMG_8797.jpg" data-large="images/large/BR-4-Closet-IMG_8797.jpg" data-room="br4" data-caption="Custom Modern fireplace">	
+    <img src="images/thumbs/thumb-BR-4-IMG_8795.jpg" data-large="images/large/BR-4-IMG_8795.jpg" data-room="br4" data-caption="">
+	<img src="images/thumbs/thumb-BR-4-Closet-IMG_8797.jpg" data-large="images/large/BR-4-Closet-IMG_8797.jpg" data-room="br4" data-caption="">	
 
-    <img src="images/thumbs/thumb-BR-5-IMG_8803.jpg" data-large="images/large/BR-5-IMG_8803.jpg" data-room="br5" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-BR-5-IMG_8804.jpg" data-large="images/large/BR-5-IMG_8804.jpg" data-room="br5" data-caption="Custom Modern fireplace">	
+    <img src="images/thumbs/thumb-BR-5-IMG_8803.jpg" data-large="images/large/BR-5-IMG_8803.jpg" data-room="br5" data-caption="">
+	<img src="images/thumbs/thumb-BR-5-IMG_8804.jpg" data-large="images/large/BR-5-IMG_8804.jpg" data-room="br5" data-caption="">	
 
-    <img src="images/thumbs/thumb-BR-4-5-Bath-IMG_8798.jpg" data-large="images/large/BR-4-5-Bath-IMG_8798.jpg" data-room="br45bath" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-BR-4-5-IMG_8800.jpg" data-large="images/large/BR-4-5-IMG_8800.jpg" data-room="br45bath" data-caption="Custom Modern fireplace">	
-    <img src="images/thumbs/thumb-BR-4-5-IMG_8805.jpg" data-large="images/large/BR-4-5-IMG_8805.jpg" data-room="br45bath" data-caption="Custom Modern fireplace">
+    <img src="images/thumbs/thumb-BR-4-5-Bath-IMG_8798.jpg" data-large="images/large/BR-4-5-Bath-IMG_8798.jpg" data-room="br45bath" data-caption="">
+	<img src="images/thumbs/thumb-BR-4-5-IMG_8800.jpg" data-large="images/large/BR-4-5-IMG_8800.jpg" data-room="br45bath" data-caption="">	
+    <img src="images/thumbs/thumb-BR-4-5-IMG_8805.jpg" data-large="images/large/BR-4-5-IMG_8805.jpg" data-room="br45bath" data-caption="">
 
-    <img src="images/thumbs/thumb-Front-IMG_8760.jpg" data-large="images/large/Front-IMG_8760.jpg" data-room="front" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-Front-IMG_8761.jpg" data-large="images/large/Front-IMG_8761.jpg" data-room="front" data-caption="Custom Modern fireplace">	
-    <img src="images/thumbs/thumb-Front-IMG_8762.jpg" data-large="images/large/Front-IMG_8762.jpg" data-room="front" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Front-IMG_8763.jpg" data-large="images/large/Front-IMG_8763.jpg" data-room="front" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-Front-IMG_8765.jpg" data-large="images/large/Front-IMG_8765.jpg" data-room="front" data-caption="Custom Modern fireplace">	
+    <img src="images/thumbs/thumb-Front-IMG_8760.jpg" data-large="images/large/Front-IMG_8760.jpg" data-room="front" data-caption="">
+	<img src="images/thumbs/thumb-Front-IMG_8761.jpg" data-large="images/large/Front-IMG_8761.jpg" data-room="front" data-caption="">	
+    <img src="images/thumbs/thumb-Front-IMG_8762.jpg" data-large="images/large/Front-IMG_8762.jpg" data-room="front" data-caption="">
+    <img src="images/thumbs/thumb-Front-IMG_8763.jpg" data-large="images/large/Front-IMG_8763.jpg" data-room="front" data-caption="">
+	<img src="images/thumbs/thumb-Front-IMG_8765.jpg" data-large="images/large/Front-IMG_8765.jpg" data-room="front" data-caption="">	
 
-    <img src="images/thumbs/thumb-Powder-IMG_8715.jpg" data-large="images/large/Powder-IMG_8715.jpg" data-room="powder" data-caption="Covered patio with louvered roof and motorized on/off">
+    <img src="images/thumbs/thumb-Powder-IMG_8715.jpg" data-large="images/large/Powder-IMG_8715.jpg" data-room="powder" data-caption="">
 
-    <img src="images/thumbs/thumb-Laundry-IMG_5385.jpg" data-large="images/large/Laundry-IMG_5385.jpg" data-room="laundry" data-caption="Landscaped backyard ideal for entertaining">
+    <img src="images/thumbs/thumb-Laundry-IMG_5385.jpg" data-large="images/large/Laundry-IMG_5385.jpg" data-room="laundry" data-caption="">
 
-    <img src="images/thumbs/thumb-Stairs-IMG_8811.jpg" data-large="images/large/Stairs-IMG_8811.jpg" data-room="stairs" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-Upstairs-IMG_8791.jpg" data-large="images/large/Upstairs-IMG_8791.jpg" data-room="stairs" data-caption="Custom Modern fireplace">	
-    <img src="images/thumbs/thumb-Upstairs-IMG_8792.jpg" data-large="images/large/Upstairs-IMG_8792.jpg" data-room="stairs" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Upstairs-IMG_8807.jpg" data-large="images/large/Upstairs-IMG_8807.jpg" data-room="stairs" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-Upstairs-IMG_8810.jpg" data-large="images/large/Upstairs-IMG_8810.jpg" data-room="stairs" data-caption="Custom Modern fireplace">	
+    <img src="images/thumbs/thumb-Stairs-IMG_8811.jpg" data-large="images/large/Stairs-IMG_8811.jpg" data-room="stairs" data-caption="">
+	<img src="images/thumbs/thumb-Upstairs-IMG_8791.jpg" data-large="images/large/Upstairs-IMG_8791.jpg" data-room="stairs" data-caption="">	
+    <img src="images/thumbs/thumb-Upstairs-IMG_8792.jpg" data-large="images/large/Upstairs-IMG_8792.jpg" data-room="stairs" data-caption="">
+    <img src="images/thumbs/thumb-Upstairs-IMG_8807.jpg" data-large="images/large/Upstairs-IMG_8807.jpg" data-room="stairs" data-caption="">
+	<img src="images/thumbs/thumb-Upstairs-IMG_8810.jpg" data-large="images/large/Upstairs-IMG_8810.jpg" data-room="stairs" data-caption="">	
 
-    <img src="images/thumbs/thumb-Bellagio-1-flr.jpg" data-large="images/large/Bellagio-1-flr.jpg" data-room="plans" data-caption="Custom Modern fireplace">
-    <img src="images/thumbs/thumb-Bellagio-2-flr.jpg" data-large="images/large/Bellagio-2-flr.jpg" data-room="plans" data-caption="Custom Modern fireplace">
-	<img src="images/thumbs/thumb-plot-plan.jpg" data-large="images/large/plot-plan.jpg" data-room="plans" data-caption="Custom Modern fireplace">	
+    <img src="images/thumbs/thumb-Bellagio-1-flr.jpg" data-large="images/large/Bellagio-1-flr.jpg" data-room="plans" data-caption="">
+    <img src="images/thumbs/thumb-Bellagio-2-flr.jpg" data-large="images/large/Bellagio-2-flr.jpg" data-room="plans" data-caption="">
+	<img src="images/thumbs/thumb-plot-plan.jpg" data-large="images/large/plot-plan.jpg" data-room="plans" data-caption="">	
 
   </div>
 </section>
