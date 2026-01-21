@@ -16,7 +16,7 @@
   --muted:#6b7280;
   --line:#e5e7eb;
   --accent:#8D2424;
-  --left-panel-width: 32%;
+  --left-panel-width: 40%;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -90,18 +90,16 @@ h4{
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:0.5rem;
 }
-.property-grid.asymmetric{
-  display:grid;
-  grid-template-columns: var(--left-panel-width) 1fr;
-  gap:1.25rem;
+.property-grid.asymmetric {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 1rem; /* space between left and right */
 }
 
-.card{
-  background:var(--card);
-  border-radius:14px;
-  padding:1.5rem;
-  border:1px solid var(--line);
+.card {
+  padding: 1rem; /* keep padding small */
 }
+
 
 .card ul{
   list-style:none;
@@ -118,8 +116,21 @@ h4{
 }
 
 .two-col{
-  columns:2;
-  column-gap:1.5rem;
+    display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two equal columns */
+  gap: 0.15rem 1.5rem; /* row-gap 0.5rem, column-gap 1.5rem */
+}
+
+/* Two-column lists inside cards (for Property Details / Room Sizes) */
+.card .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* only inside the card content */
+  gap: 0.5rem 1rem; /* row-gap, column-gap */
+}
+
+/* Features section full width of its column (no splitting lines) */
+.card.features-wide ul {
+  display: block;
 }
 
 /* ---------- FILTERS ---------- */
@@ -240,6 +251,17 @@ footer{
   color:var(--muted);
   border-top:1px solid var(--line);
 }
+
+/* ---------- RESPONSIVE LAYOUT ---------- */
+/* MOBILE RESPONSIVE: stack sections vertically */
+@media (max-width: 768px) {
+  .property-grid.asymmetric {
+    grid-template-columns: 1fr; /* stack */
+  }
+  .card.features-wide {
+    margin-top: 1rem; /* spacing when stacked */
+  }
+}
 </style>
 </head>
 
@@ -294,15 +316,11 @@ footer{
 		<li>• <b>Gated</b> · 24×7 physical guard presence</li>
 		<li>• <b>Louvered Patio Roof</b> · Motorized open/close slats</li>
 		<li>• <b>Motorized 25' Shade</b> · Blocks west sun, saves energy cost</li>
-		<li>• <b>Huge Game and Media Rooms</b> - 21' and 24' respectively</li>
 		<li>• <b>Highly Rated Schools</b> - 2 middle and 1 elementary schools attached to community </li>		
 		<li>• <b>Guest BR Downstairs</b> - Ideal for parents</li>
 		<li>• <b>Easy Asses</b> - Minutes from major highways and shopping centers</li>
 		<li>• <b>Resort Style Amenities</b> - Massive pool with slides, Fitness center, Clubhouse, Soccer fields, Basketball Courts, Dog Park, HOA Organized Movie Nights & Socials</li>	
         <li>• <b>Low HOA fees</b> - With only $125 per month, enjoy all the above Richwoods amenities</li>				
-
-		<li>• <b>Additional 5th BR</b> - Ideal for growing family</li>
-		<li>• <b>Office With Glass Doors</b></li>
 		<li>• <b>Polyurea Patio Flooring</b> -  Durable & flexible coating (4x stronger than epoxy) that resists chemical corrosion, handles temperature shifts, and prevents peeling or cracking</li>
 
       </ul>
@@ -311,8 +329,11 @@ footer{
   </div>
 </section>
 
-
-
+<!--
+		<li>• <b>Huge Game and Media Rooms</b> - 21' and 24' respectively</li>
+		<li>• <b>Additional 5th BR</b> - Ideal for growing family</li>
+		<li>• <b>Office With Glass Doors</b></li>
+-->
 <section>
   <h2>Photo Gallery</h2>
 
