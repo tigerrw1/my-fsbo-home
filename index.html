@@ -1,284 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Richwood Home For Sale By Owner</title>
-  <meta name="description" content="FSBO home with thumbnail gallery, full-screen lightbox, filters, navigation, and zoom." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Richwood Home – For Sale By Owner</title>
+<meta name="description" content="Luxury FSBO home in Richwoods, Frisco TX with full photo gallery." />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-	  --primary: #1f2933;
-      --secondary: #f5f7fa;
-      --accent: #2563eb;
-      --dark: #111827;
-      --light: #f5f7fa;
-    }
+<style>
+:root{
+  --bg:#fafafa;
+  --card:#ffffff;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --accent:#8D2424;
+  --left-panel-width: 32%;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+*{box-sizing:border-box;margin:0;padding:0}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: white;
-	   color: #3c4766;	  
-    }
+body{
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+}
 
-    header {
-      background: #edeae8;
-      color: #3c4766;	  
-      padding: 1rem 1.5rem;
-	  text-align: center;  
-    }
+/* ---------- HEADER ---------- */
 
-    header h1 { font-size: 1.75rem; }
-    header p { font-size: 1.2rem; margin-top: .5rem; }
+header{
+  background:linear-gradient(180deg,#f3f0ee,#ffffff);
+  padding: 1.5rem 1.5rem 0.75rem; /* pulled in top and bottom */
+  text-align:center;
+  border-bottom:1px solid var(--line);
+}
 
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0.5rem 0.5rem;
-    }
-	
-    h2 { font-size: 1.5rem; margin-bottom: 1rem; }	
-	
-    .badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: .4rem .8rem;
-      border-radius: 999px;
-      font-size: .85rem;
-      margin-bottom: 0.25rem;
-    }
+header h1{
+  font-size:2.2rem;
+  font-weight:600;
+  letter-spacing:.3px;
+}
 
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.25rem;
-      margin-top: 0.15rem;
-    }
-	
-	.detail-card {
-      background: white;
-      padding: 0.25rem;
-      border-radius: 8px;
-	  border: 1px solid #000000;
-	  font-size: 1rem;
-    }
-	
-    /* FILTER BUTTONS */
-    .filters {
-      display: flex;
-      gap: .75rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
+header p{
+  margin-top:.75rem;
+  color:var(--accent);
+  font-weight:500;
+}
 
-    .filters button {
-     border: 1px solid #3c4766; 
-      padding: .3em .75rem;
-      border-radius: 999px;
-      background: none;
-      cursor: pointer;
-      font-weight: 600;
-	  color: #3c4766;
-    }
+/* ---------- SECTIONS ---------- */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding: 1rem 1.25rem;  /* reduced padding all around */
+}
+section:first-of-type{
+  padding-top:1.5rem;
+}
+/* First section: Property Details / Features */
+section:first-of-type {
+  padding-top: 1rem;      /* tighter to header */
+  padding-bottom: 1.25rem; /* less gap below */
+}
 
-    .filters button.active {
-      background: var(--accent);
-      color: white;
-    }
+/* Second section: Photo Gallery */
+section:nth-of-type(2) {
+  padding-top: 1rem;      /* pull it up closer */
+  padding-bottom: 2rem;   /* enough breathing room at bottom */
+}
 
-    /* THUMBNAILS */
-    .thumbnail-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
-    }
+h2{
+  font-size:1.75rem;
+  font-weight:600;
+  margin-bottom:1.5rem;
+}
 
-    .thumbnail-grid img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
+h4{
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom:.75rem;
+  border-bottom:1px solid var(--line);
+  padding-bottom:.35rem;
+}
 
-    .thumbnail-grid img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(0,0,0,.25);
-    }
+/* ---------- PROPERTY DETAILS ---------- */
+.property-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:0.5rem;
+}
+.property-grid.asymmetric{
+  display:grid;
+  grid-template-columns: var(--left-panel-width) 1fr;
+  gap:1.25rem;
+}
 
-    /* LIGHTBOX */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:1.5rem;
+  border:1px solid var(--line);
+}
 
-    .lightbox.active { display: flex; }
+.card ul{
+  list-style:none;
+  font-size:.95rem;
+}
 
-    .lightbox-content {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+.card li{
+  padding:.25rem 0;
+}
 
-    .lightbox-content img {
-      max-width: 95vw;
-      max-height: 95vh;
-      object-fit: contain;
-      border-radius: 14px;
-      transition: transform .25s ease;
-    }
+.card b{
+  color:var(--accent);
+  font-weight:600;
+}
 
-    .lightbox-close,
-    .nav {
-      position: absolute;
-      background: white;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      cursor: pointer;
-      user-select: none;
-    }
+.two-col{
+  columns:2;
+  column-gap:1.5rem;
+}
 
-    .lightbox-close { top: 20px; right: 20px; }
-    .nav.prev { left: 20px; }
-    .nav.next { right: 20px; }
+/* ---------- FILTERS ---------- */
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-bottom:2rem;
+}
 
-    .counter {
-      position: absolute;
-      bottom: 48px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-size: .9rem;
-    }
+.filters button{
+  border:1px solid var(--line);
+  background:white;
+  padding:.45rem .9rem;
+  border-radius:999px;
+  font-weight:500;
+  font-size:.85rem;
+  cursor:pointer;
+  color:var(--muted);
+}
 
-    .caption {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #e5e7eb;
-      font-size: .95rem;
-      max-width: 90%;
-      text-align: center;
-    }
+.filters button.active{
+  background:var(--accent);
+  color:white;
+  border-color:var(--accent);
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: .85rem;
-      color: #6b7280;
-    }
-		
-	.group {
-	  margin-bottom: 1rem;
-	}
+/* ---------- GALLERY ---------- */
+.thumbnail-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:1.25rem;
+}
 
-	.group h4 {
-	  margin: 0 0 0.25rem;
-	  font-size: 0.9rem;
-	  border-bottom: 1px solid #ddd;
-	}
+.thumbnail-grid img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:16px;
+  cursor:pointer;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
 
-	.group ul {
-	  list-style: none;
-	  padding: 0;
-	  margin: 0;
-	  font-size: 0.85rem;
-	}
+.thumbnail-grid img:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
 
-	.group li {
-	  padding: 0.15rem 0;
-	  break-inside: avoid; /* prevents awkward splits */
-	}
+/* ---------- LIGHTBOX ---------- */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
 
-	.two-col {
-	  columns: 2;
-	  column-gap: 1.5rem;
-	}	
-	
-	.property-overview .two-col li b, header p b{
-		/* font-family: 'Glegoo', serif;   
-		font-weight: 700;               
-		font-size: 1rem;                */
-		color: #8D2424;                 /* optional: different color */
-	}		
-  </style>
+.lightbox.active{display:flex}
+
+.lightbox-content{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.lightbox-content img{
+  max-width:95vw;
+  max-height:95vh;
+  border-radius:14px;
+}
+
+.nav,.lightbox-close{
+  position:absolute;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+  cursor:pointer;
+}
+
+.lightbox-close{top:24px;right:24px}
+.nav.prev{left:24px}
+.nav.next{right:24px}
+
+.counter,.caption{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  color:#e5e7eb;
+  font-size:.9rem;
+}
+
+.counter{bottom:56px}
+.caption{bottom:28px;text-align:center;max-width:90%}
+
+.section-spacer{
+  height:1.25rem;
+}
+
+.subtle-heading{
+  margin-top:.25rem;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:2.5rem 1rem;
+  font-size:.85rem;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>5739 Tiger Ln, Frisco, TX 75035</h1>
-  <p><b>• • • Location Location Location • • • RICHWOODS Community • • • For Sale By Owner (FSBO)</b></p>
+  <h1>Frisco, TX 75035</h1>
+  <p>• • • Location Location Location • • • RICHWOODS Community • • • For Sale By Owner (FSBO)</p>
 </header>
 
-<!--
+
 <section>
-  <span class="badge">Property Overview</span>
-  <div class="details-grid">
-    <div class="detail-card"><strong>Price:</strong><br>$850,000</div>
-    <div class="detail-card"><strong>Bedrooms:</strong><br>5</div>
-    <div class="detail-card"><strong>Bathrooms:</strong><br>4 Full, 1 Half</div>
-    <div class="detail-card"><strong>Living Area:</strong><br>3,677 sq ft</div>
-    <div class="detail-card"><strong>Lot Size:</strong><br>6,050 sq ft (55 X 110)</div>
-    <div class="detail-card"><strong>Year Built:</strong><br>2015</div>
-	<div class="detail-card"><strong>East Facing</strong></div>
-	<div class="detail-card"><strong>Gated Community</strong><br>Security Guards - 24x7</div>
-	<div class="detail-card"><strong>Louvered Patio Roof</strong><br> Motorized Adjustable Slats</div>
-	<div class="detail-card"><strong>Motorized Shade</strong><br> Blocks West Sun, Saves Big</div>
-	
-	<div class="detail-card"><strong>Family Room:</strong><br>18' 2" X 15' 1"</div>
-	<div class="detail-card"><strong>Kitchen:</strong><br>16' 0" X 12' 3"</div>
-	<div class="detail-card"><strong>Breakfast Room:</strong><br>10' 10" X 10' 2"</div>
-	<div class="detail-card"><strong>Dining Room:</strong><br>12' 4" X 11' 0"</div>
-	<div class="detail-card"><strong>Office:</strong><br>12' 0" X 11' 0"</div>
-	<div class="detail-card"><strong>Game (upstairs):</strong><br>21' 0" X 14' 3"</div>
-	<div class="detail-card"><strong>Media (upstairs):</strong><br>24' 2" X 12' 2"</div>
-	<div class="detail-card"><strong>Master BR (downstairs):</strong><br>17' 0" X 14' 0"</div>
-	<div class="detail-card"><strong>BR2 (downstairs guest):</strong><br>11' 8" X 11' 0"</div>
-	<div class="detail-card"><strong>BR3 (upstairs):</strong><br>13' 3" X 11' 0"</div>
-	<div class="detail-card"><strong>BR4 (upstairs):</strong><br>12' 0" X 10' 6"</div>
-	<div class="detail-card"><strong>BR5 (upstairs):</strong><br>13' 3" X 11' 10"</div>	
-	
-  </div>
-</section>
--->
 
+  <div class="property-grid asymmetric">
 
-<section class="property-overview">
+    <!-- LEFT: 1/3 -->
+    <div class="card">
+      <h4>Property Details</h4>
+      <ul class="two-col">
+        <li><b>Beds:</b> 5</li>
+        <li><b>Baths:</b> 4 Full, 1 Half</li>
+        <li><b>Living Area:</b> 3,677 sq ft</li>
+        <li><b>Lot Size:</b> 6,050 sq ft</li>
+        <li><b>Year Built:</b> 2015</li>
+      </ul>
 
-	<div class="group">
-	  <h2>Property Details</h2>
-	  <ul class="two-col">
-		<li><strong>Beds:</strong> 5</li>
-		<li><strong>Baths:</strong> 4 Full, 1 Half</li>
-		<li><strong>Living Area:</strong> 3,677 sq ft</li>
-		<li><strong>Lot Size:</strong> 6,050 sq ft</li>
-		<li><strong>Year Built:</strong> 2015</li>
-	  </ul>
-	</div>
+      <div class="section-spacer"></div>
 
-	<div class="group">
-	  <h4>Features</h4>
-	  <ul class="two-col">
+      <h4 class="subtle-heading">Room Sizes</h4>
+      <ul class="two-col room-sizes">
+        <li>Family: 18'2" × 15'1"</li>
+        <li>Kitchen: 16'0" × 12'3"</li>
+        <li>Breakfast: 10'10" × 10'2"</li>
+        <li>Dining: 12'4" × 11'0"</li>
+        <li>Office: 12'0" × 11'0"</li>
+        <li>Game: 21'0" × 14'3"</li>
+        <li>Media: 24'2" × 12'2"</li>
+        <li>Master: 17'0" × 14'0"</li>
+        <li>BR2: 11'8" × 11'0"</li>
+        <li>BR3: 13'3" × 11'0"</li>
+        <li>BR4: 12'0" × 10'6"</li>
+        <li>BR5: 13'3" × 11'10"</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: 2/3 -->
+    <div class="card features-wide">
+      <h4>Features</h4>
+      <ul class="two-col">
 		<li>• <b>Richwoods</b> - Frisco’s most sought-after neighborhood</li>
 		<li>• <b>East Facing</b></li>
 		<li>• <b>Gated</b> · 24×7 physical guard presence</li>
@@ -286,33 +296,22 @@
 		<li>• <b>Motorized 25' Shade</b> · Blocks west sun, saves energy cost</li>
 		<li>• <b>Huge Game and Media Rooms</b> - 21' and 24' respectively</li>
 		<li>• <b>Highly Rated Schools</b> - 2 middle and 1 elementary schools attached to community </li>		
+		<li>• <b>Guest BR Downstairs</b> - Ideal for parents</li>
+		<li>• <b>Easy Asses</b> - Minutes from major highways and shopping centers</li>
 		<li>• <b>Resort Style Amenities</b> - Massive pool with slides, Fitness center, Clubhouse, Soccer fields, Basketball Courts, Dog Park, HOA Organized Movie Nights & Socials</li>	
         <li>• <b>Low HOA fees</b> - With only $125 per month, enjoy all the above Richwoods amenities</li>				
-		<li>• <b>Guest BR Downstairs</b> - Ideal for parents</li>
+
 		<li>• <b>Additional 5th BR</b> - Ideal for growing family</li>
 		<li>• <b>Office With Glass Doors</b></li>
-		<li>• <b>Easy Asses</b> - Minutes from major highways and shopping centers</li>
-	  </ul>
-	</div>
-	
-  <div class="group">
-    <h4>Room Sizes</h4>
-    <ul class="two-col">
-      <li>Family: 18'2" × 15'1"</li>
-      <li>Kitchen: 16'0" × 12'3"</li>
-      <li>Breakfast: 10'10" × 10'2"</li>
-      <li>Dining: 12'4" × 11'0"</li>
-      <li>Office: 12'0" × 11'0"</li>
-      <li>Game (upstairs): 21'0" × 14'3"</li>
-      <li>Media (upstaris): 24'2" × 12'2"</li>
-      <li>Master BR: 17'0" × 14'0"</li>
-      <li>BR2 (Guest downstairs): 11'8" × 11'0"</li>
-      <li>BR3 (upstairs): 13'3" × 11'0"</li>
-      <li>BR4 (upstairs): 12'0" × 10'6"</li>
-      <li>BR5 (upstairs): 13'3" × 11'10"</li>
-    </ul>
+		<li>• <b>Polyurea Patio Flooring</b> -  Durable & flexible coating (4x stronger than epoxy) that resists chemical corrosion, handles temperature shifts, and prevents peeling or cracking</li>
+
+      </ul>
+    </div>
+
   </div>
 </section>
+
+
 
 <section>
   <h2>Photo Gallery</h2>
