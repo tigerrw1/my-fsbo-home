@@ -30,23 +30,62 @@ body{
 
 /* ---------- HEADER ---------- */
 
-header{
-  background:linear-gradient(180deg,#f3f0ee,#ffffff);
-  padding: 1.5rem 1.5rem 0.75rem; /* pulled in top and bottom */
-  text-align:center;
-  border-bottom:1px solid var(--line);
+header {
+  background: linear-gradient(180deg,#f3f0ee,#ffffff);
+  padding: 1rem 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--line);
 }
 
-header h1{
-  font-size:2.2rem;
-  font-weight:600;
-  letter-spacing:.3px;
+header .header-inner {
+  max-width: 1200px;       /* match your sections */
+  margin: 0 auto;
+  padding: 0 1.25rem;      /* same padding as sections */
 }
 
-header p{
-  margin-top:.75rem;
-  color:var(--accent);
-  font-weight:500;
+header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;  /* top align left & right */
+  gap: 1rem;
+}
+
+header .header-left {
+  flex: 1;                /* take remaining space, allow overflow */
+  text-align: left;
+  min-width: 0;           /* prevents text from breaking layout */
+}
+
+header .header-right {
+  display: flex;
+  flex-direction: column;  /* stack email & phone */
+  gap: 0.25rem;
+  flex-shrink: 0;           /* don’t shrink too much */
+  text-align: right;
+}
+
+header .header-right a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+header .header-right p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;     /* prevents breaking into multiple lines */
+}
+
+header h1 {
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: .3px;
+  margin-bottom: 0.25rem;
+}
+
+header p {
+  margin: 0.25rem 0;
+  color: var(--accent);
+  font-weight: 500;
 }
 
 /* ---------- SECTIONS ---------- */
@@ -261,17 +300,40 @@ footer{
   .card.features-wide {
     margin-top: 1rem; /* spacing when stacked */
   }
+  header .header-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  header .header-right {
+    text-align: left;       /* left align on small screens */
+    flex-direction: row;    /* optional: email | phone side by side */
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>5739 Tiger Ln, Frisco, TX 75035</h1>
-  <p>• • • Location Location Location • • • RICHWOODS Community • • • For Sale By Owner (FSBO)</p>
-</header>
 
+<header>
+  <div class="header-inner">
+    <div class="header-content">
+      <!-- LEFT: Property info -->
+      <div class="header-left">
+        <h1>5739 Tiger Ln, Frisco, TX 75035</h1>
+        <p>• • • Location Location Location (RICHWOODS) • • •</p>
+      </div>
+
+      <!-- RIGHT: Contact info stacked -->
+      <div class="header-right">
+        <div>Email: <a href="mailto:tigerrw1@outlook.com">tigerrw1@outlook.com</a></div>
+        <!--<div>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></div>-->
+      </div>
+    </div>
+  </div>
+</header>
 
 <section>
 
@@ -464,7 +526,7 @@ footer{
 </div>
 
 <footer>
-  © 2026 For Sale By Owner
+
 </footer>
 
 <script>
